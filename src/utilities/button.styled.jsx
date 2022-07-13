@@ -1,14 +1,6 @@
 import styled from '@emotion/styled';
 
-export const FormContainer = styled.form`
-  display: block;
-  margin: 0 auto;
-  min-width: 250px;
-  width: fit-content;
-`;
-
-export const SubmitBtn = styled.button`
-  display: block;
+export const Button = styled.button`
   background-color: transparent;
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.borderMiddleColor};

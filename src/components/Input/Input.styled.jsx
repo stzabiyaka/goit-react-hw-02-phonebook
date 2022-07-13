@@ -2,20 +2,19 @@ import styled from '@emotion/styled';
 
 export const Label = styled.label`
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 500;
   text-transform: capitalize;
 `;
 
-export const Input = styled.input`
+export const InputField = styled.input`
   display: block;
+  margin-bottom: 20px;
 
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme }) => theme.colors.borderMiddleColor};
   transition: box-shadow 250ms ease-out;
-
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
 
   &:focus-within {
     outline: none;
