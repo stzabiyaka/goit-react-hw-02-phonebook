@@ -20,6 +20,7 @@ export class Filter extends Component {
           name="filter"
           type="search"
           value={value}
+          title="Enter name of the contact to filter data. Filter is case insensitive."
           onChange={this.handleChange}
         />
       </FilterContainer>

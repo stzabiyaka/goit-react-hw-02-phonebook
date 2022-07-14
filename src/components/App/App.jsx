@@ -37,7 +37,12 @@ export class App extends Component {
   filterContacts = () => {
     const { contacts, filter } = this.state;
     return filter
-      ? contacts.filter(contact => contact.name.toLowerCase().includes(filter))
+      ? contacts.filter(contact =>
+          contact.name
+            .toLowerCase()
+            .split(' ')
+            .some(element => element.startsWith(filter))
+        )
       : contacts;
   };
 
@@ -70,7 +75,7 @@ export class App extends Component {
           <Filter onFilter={this.setFilter} />
           <ContactList
             contacts={this.filterContacts()}
-            onDelete={this.removeContact}
+            removeItem={this.removeContact}
           />
         </Section>
 

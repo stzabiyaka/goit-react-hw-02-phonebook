@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types';
-import { List, ListItem } from './ContactList.styled';
-import { Button } from 'utilities';
+import { ContactListItem } from 'components/ContactListItem';
+import { List } from './ContactList.styled';
 
-export function ContactList({ contacts, onDelete }) {
+export function ContactList({ contacts, removeItem }) {
   return (
     <List>
       {contacts
         .sort((a, b) => a.name.localeCompare(b.name))
         .map(({ id, name, number }) => {
           return (
-            <ListItem key={id}>
-              {name}: {number}{' '}
-              <Button type="button" onClick={() => onDelete(id)}>
-                Delete
-              </Button>
-            </ListItem>
+            <ContactListItem
+              key={id}
+              id={id}
+              name={name}
+              number={number}
+              onDelete={removeItem}
+            ></ContactListItem>
           );
         })}
     </List>
@@ -29,5 +30,5 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
-  onDelete: PropTypes.func.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
