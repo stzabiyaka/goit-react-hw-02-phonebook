@@ -14,7 +14,7 @@ export class AddContactForm extends Component {
   state = { ...INITIAL_STATE };
 
   handleChange = event => {
-    const { name, value } = event.target;
+    const { name, value } = event.currentTarget;
     this.setState({ [name]: value });
   };
 

@@ -7,7 +7,7 @@ export class Filter extends Component {
   state = { value: '' };
 
   handleChange = event => {
-    const { value } = event.target;
+    const { value } = event.currentTarget;
     this.setState({ value: value });
     this.props.onFilter(value);
   };
