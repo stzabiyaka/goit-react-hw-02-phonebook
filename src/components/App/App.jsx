@@ -67,7 +67,7 @@ export class App extends Component {
         <Section title="Phonebook">
           <AddContactForm
             onSubmit={this.addContact}
-            onCheck={this.isContactExist}
+            checkContact={this.isContactExist}
           />
         </Section>
 

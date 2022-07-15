@@ -21,7 +21,7 @@ export class AddContactForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { name, number } = this.state;
-    if (!this.props.onCheck(name)) {
+    if (!this.props.checkContact(name)) {
       this.props.onSubmit({ id: nanoid(), name: name, number: number });
     }
     this.reset();
@@ -63,5 +63,5 @@ export class AddContactForm extends Component {
 
 AddContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onCheck: PropTypes.func.isRequired,
+  checkContact: PropTypes.func.isRequired,
 };
