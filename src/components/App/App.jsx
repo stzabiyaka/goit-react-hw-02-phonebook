@@ -6,15 +6,11 @@ import { Section } from 'components/Section';
 import { AddContactForm } from 'components/AddContactForm';
 import { ContactList } from 'components/ContactList';
 import { Filter } from 'components/Filter';
+import { initialContacts } from 'utilities';
 
 export class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-    ],
+    contacts: [...initialContacts],
     filter: '',
   };
 
@@ -30,18 +26,20 @@ export class App extends Component {
     }));
   };
 
-  setFilter = filter => {
-    this.setState({ filter: filter.toLowerCase() });
+  setFilter = event => {
+    const { value } = event.currentTarget;
+    this.setState({ filter: value });
   };
 
-  filterContacts = () => {
+  getFilteredContacts = () => {
     const { contacts, filter } = this.state;
+    const normalizedFilter = filter.toLocaleLowerCase();
     return filter
       ? contacts.filter(contact =>
           contact.name
             .toLowerCase()
             .split(' ')
-            .some(element => element.startsWith(filter))
+            .some(element => element.startsWith(normalizedFilter))
         )
       : contacts;
   };
@@ -60,6 +58,7 @@ export class App extends Component {
   };
 
   render() {
+    const { filter } = this.state;
     return (
       <Application>
         <PageTitle title="React homework #02 - phonebook" />
@@ -72,9 +71,9 @@ export class App extends Component {
         </Section>
 
         <Section title="Contacts">
-          <Filter onFilter={this.setFilter} />
+          <Filter value={filter} onFilter={this.setFilter} />
           <ContactList
-            contacts={this.filterContacts()}
+            contacts={this.getFilteredContacts()}
             removeItem={this.removeContact}
           />
         </Section>
