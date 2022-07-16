@@ -32,9 +32,9 @@ export function Input({
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  pattern: PropTypes.string,
-  title: PropTypes.string,
-  required: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  pattern: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  required: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };

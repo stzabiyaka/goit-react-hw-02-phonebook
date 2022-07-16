@@ -11,6 +11,8 @@ export function Filter({ value, onFilter }) {
         value={value}
         title="Enter a name or a family name of the contact to filter data. Filter is case insensitive."
         onChange={onFilter}
+        required={false}
+        pattern=""
       />
     </FilterContainer>
   );
